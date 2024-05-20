@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+
+[Click here to view Live Preview](https://inventory-management-rosy.vercel.app/)
+
+
+Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
