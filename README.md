@@ -2,6 +2,9 @@
 <h4>Username : demo.user@gmail.com</h4>
 <h4>Password : demo@123</h4>
 
+The Inventory Management Tool is a web application built using the MERN stack. This tool allows you to manage your inventory by adding, viewing,
+and deleting products. Users can register, and after logging in, they can manage the inventory efficiently.
+
 Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
