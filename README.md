@@ -1,6 +1,6 @@
 <H1 style="font-size:2em, color:blue;">Click on this link to view Live Preview </br> https://inventory-management-rosy.vercel.app/</H1>
-<h6>Username : demo.user@gmail.com</h6>
-<h6>Password : demo@123</h6>
+<h5>Username : demo.user@gmail.com</h5>
+<h5>Password : demo@123</h5>
 
 Getting Started with Create React App
 
