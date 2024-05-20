@@ -13,6 +13,8 @@ and deleting products. Users can register, and after logging in, they can manage
 ![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/6f3fc612-f237-4c06-8904-dde5c618d37a)
 ![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/c0ece4ed-0720-4493-9872-79bd5d23e966)
 ![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/b9c691d7-3764-4e3d-ae00-f726477e1087)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/1df893b8-ca3c-46a3-87c1-1beddfbc3916)
+
 
 
 Getting Started with Create React App
