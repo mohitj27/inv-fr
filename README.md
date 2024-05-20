@@ -1,4 +1,4 @@
-<H1 style="font-size:2em, color:blue;">Click here to view Live Preview (https://inventory-management-rosy.vercel.app/)</H1>
+<H1 style="font-size:2em, color:blue;">Click here to view Live Preview </br>https://inventory-management-rosy.vercel.app/)</H1>
 
 Getting Started with Create React App
 
