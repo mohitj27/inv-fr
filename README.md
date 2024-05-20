@@ -1,6 +1,4 @@
-
-[Click here to view Live Preview](https://inventory-management-rosy.vercel.app/)
-
+<span style="font-size:0.5em;">[Click here to view Live Preview](https://inventory-management-rosy.vercel.app/)</span>
 
 Getting Started with Create React App
 
