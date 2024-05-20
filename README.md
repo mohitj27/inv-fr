@@ -5,6 +5,9 @@
 The Inventory Management Tool is a web application built using the MERN stack. This tool allows you to manage your inventory by adding, viewing,
 and deleting products. Users can register, and after logging in, they can manage the inventory efficiently.
 
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/0d790c38-4271-4391-b7b5-2703b87a0915)
+
+
 Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
