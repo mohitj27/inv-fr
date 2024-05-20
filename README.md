@@ -6,6 +6,13 @@ The Inventory Management Tool is a web application built using the MERN stack. T
 and deleting products. Users can register, and after logging in, they can manage the inventory efficiently.
 
 ![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/0d790c38-4271-4391-b7b5-2703b87a0915)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/978452a7-455b-4c06-ab92-7c7077244b1c)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/f7ca12e4-c6a8-4917-8aac-e7ca930a734d)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/6a51c780-864b-4099-8f33-b26398159971)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/2586ae65-c79f-4b09-bbab-4670726120d3)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/6f3fc612-f237-4c06-8904-dde5c618d37a)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/c0ece4ed-0720-4493-9872-79bd5d23e966)
+![image](https://github.com/sagartambe2023/Inventory-Management-Tool-Frontend/assets/154309797/b9c691d7-3764-4e3d-ae00-f726477e1087)
 
 
 Getting Started with Create React App
