@@ -215,6 +215,8 @@ function Sales() {
               })}
             </tbody>
           </table>
+          {selectedSales.length > 0 && 
+           <div> Recipient signature:</div>}
         </div>
       </div>
     </div>
