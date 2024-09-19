@@ -14,7 +14,7 @@ export default function AddProduct({
     manufacturer: "",
     description: "",
   });
-  console.log("----",product)
+  console.log("----", product);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
@@ -23,7 +23,7 @@ export default function AddProduct({
   };
 
   const addProduct = () => {
-    fetch("http://localhost:5000/api/product/add", {
+    fetch("https://inventory-backend-1-g9xh.onrender.com/api/product/add", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -126,7 +126,6 @@ export default function AddProduct({
                               placeholder="Ex. Apple (brand)"
                             />
                           </div>
-                          
 
                           <div className="sm:col-span-2">
                             <label
@@ -154,9 +153,7 @@ export default function AddProduct({
                             </textarea>
                           </div>
                         </div>
-                        <div className="flex items-center space-x-4">
-                          
-                        </div>
+                        <div className="flex items-center space-x-4"></div>
                       </form>
                     </div>
                   </div>

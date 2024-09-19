@@ -97,7 +97,9 @@ function Dashboard() {
 
   //fetching low stock
   const fetchLowStockCount = () => {
-    fetch(`http://localhost:5000/api/product/lowStockCount/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/lowStockCount/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setLowStockCount(data.count);
@@ -109,7 +111,7 @@ function Dashboard() {
   const fetchTotalSaleAmount = () => {
     fetch(
       // `http://localhost:4000/api/sales/get/${authContext.user}/totalsaleamount`
-      `http://localhost:5000/api/sales/get/${authContext.user}/totalsaleamount`
+      `https://inventory-backend-1-g9xh.onrender.com/api/sales/get/${authContext.user}/totalsaleamount`
     )
       .then((response) => response.json())
       .then((datas) => setSaleAmount(datas.totalSaleAmount));
@@ -119,9 +121,8 @@ function Dashboard() {
   const fetchTotalPurchaseAmount = () => {
     fetch(
       // `http://localhost:4000/api/purchase/get/${authContext.user}/totalpurchaseamount`
-      `http://localhost:5000/api/purchase/get/${authContext.user}/totalpurchaseamount`
+      `https://inventory-backend-1-g9xh.onrender.com/api/purchase/get/${authContext.user}/totalpurchaseamount`
     )
-    
       .then((response) => response.json())
       .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
   };
@@ -129,7 +130,9 @@ function Dashboard() {
   // Fetching all stores data
   const fetchStoresData = () => {
     // fetch(`http://localhost:4000/api/store/get/${authContext.user}`)
-    fetch(`http://localhost:5000/api/store/get/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/store/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((datas) => setStores(datas));
   };
@@ -137,7 +140,9 @@ function Dashboard() {
   // Fetching Data of All Products
   const fetchProductsData = () => {
     // fetch(`http://localhost:4000/api/product/get/${authContext.user}`)
-    fetch(`http://localhost:5000/api/product/get/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((datas) => setProducts(datas))
       .catch((err) => console.log(err));
@@ -146,15 +151,17 @@ function Dashboard() {
   // Fetching Monthly Sales
   const fetchMonthlySalesData = () => {
     // fetch(`http://localhost:4000/api/sales/getmonthly`)
-    fetch(`http://localhost:5000/api/sales/getmonthly`)
+    fetch(`https://inventory-backend-1-g9xh.onrender.com/api/sales/getmonthly`)
       .then((response) => response.json())
       .then((datas) => updateChartData(datas.salesAmount))
       .catch((err) => console.log(err));
   };
-  
+
   const fetchProductData = () => {
     // Fetch product data from your API endpoint
-    fetch(`http://localhost:5000/api/product/get/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         // Assuming your data structure is an array of objects with 'name' and 'stock' properties
@@ -169,12 +176,10 @@ function Dashboard() {
   const productStocks = productData.map((product) => product.stock);
 
   //  const barColors = ['#FF5733', '#3366FF', '#FF3366', '#33FF99', '#FFCC33']; // Define an array of colors
-  
-   // const barColors = ['#FF5733', '#3366FF', '#FF3366', '#33FF99', '#FFCC33'];
+
+  // const barColors = ['#FF5733', '#3366FF', '#FF3366', '#33FF99', '#FFCC33'];
   const productChartData = {
-  
     options: {
-      
       chart: {
         id: "product-bar",
       },
@@ -182,31 +187,28 @@ function Dashboard() {
         categories: productNames,
       },
     },
-    
+
     series: [
       {
         name: "Product Stock",
         data: productStocks,
       },
     ],
+  };
 
-  }
-
-  const puurchaseAmount = {purchaseAmount};
-  const saaleAmount = {saleAmount};
+  const puurchaseAmount = { purchaseAmount };
+  const saaleAmount = { saleAmount };
 
   // const val = ((puurchaseAmount - saaleAmount) / puurchaseAmount) * 100;
-  const profitPercentage = ((saleAmount - purchaseAmount) / purchaseAmount) * 100;
-  const profitPercentagee= profitPercentage.toFixed(2); 
+  const profitPercentage =
+    ((saleAmount - purchaseAmount) / purchaseAmount) * 100;
+  const profitPercentagee = profitPercentage.toFixed(2);
 
-  const pPercentage = (( purchaseAmount- 100000) / 100000) * 100;
-  const pPercentagee= pPercentage.toFixed(2); 
-
-
+  const pPercentage = ((purchaseAmount - 100000) / 100000) * 100;
+  const pPercentagee = pPercentage.toFixed(2);
 
   return (
     <>
-      
       <div className="grid grid-cols-1 col-span-12 lg:col-span-10 gap-6 md:grid-cols-3 lg:grid-cols-4  p-4 ">
         <article className="flex flex-col gap-4 rounded-lg border  border-gray-100 bg-white p-6  ">
           <div className="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600">
@@ -224,9 +226,9 @@ function Dashboard() {
                 d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
               />
             </svg>
-            
+
             {/* <span className="text-xs font-medium"> 47.81% </span> */}
-            <span className="text-xs font-medium"> ${profitPercentagee}%</span>
+            <span className="text-xs font-medium"> ₹{profitPercentagee}%</span>
           </div>
 
           <div>
@@ -236,11 +238,14 @@ function Dashboard() {
 
             <p>
               <span className="text-2xl font-medium text-gray-900">
-                ${saleAmount}
+                ₹{saleAmount}
               </span>
 
               {/* <span className="text-xs text-gray-500"> from 240.94 </span> */}
-              <span className="text-xs text-gray-500"> from ${purchaseAmount} </span>
+              <span className="text-xs text-gray-500">
+                {" "}
+                from ₹{purchaseAmount}{" "}
+              </span>
             </p>
           </div>
         </article>
@@ -263,7 +268,7 @@ function Dashboard() {
             </svg>
 
             {/* <span className="text-xs font-medium"> 67.81% </span> */}
-            <span className="text-xs font-medium"> ${pPercentagee}% </span>
+            <span className="text-xs font-medium"> ₹{pPercentagee}% </span>
           </div>
 
           <div>
@@ -274,10 +279,10 @@ function Dashboard() {
             <p>
               <span className="text-2xl font-medium text-gray-900">
                 {" "}
-                ${purchaseAmount}{" "}
+                ₹{purchaseAmount}{" "}
               </span>
 
-              <span className="text-xs text-gray-500"> from $100000.00 </span>
+              <span className="text-xs text-gray-500"> from ₹100000.00 </span>
             </p>
           </div>
         </article>
@@ -312,7 +317,7 @@ function Dashboard() {
                 {products.length}{" "}
               </span>
 
-              {/* <span className="text-xs text-gray-500"> from $404.32 </span> */}
+              {/* <span className="text-xs text-gray-500"> from ₹404.32 </span> */}
             </p>
           </div>
         </article>
@@ -343,7 +348,7 @@ function Dashboard() {
 
             <p>
               <span className="text-2xl font-medium text-gray-900">
-              {lowStockCount}
+                {lowStockCount}
               </span>
               {/* <span className="text-2xl font-medium text-gray-900">
                 {" "}
@@ -366,20 +371,18 @@ function Dashboard() {
           <div>
             <Doughnut data={data} />
           </div>
-          
         </div>
         {/* <div className="mt-8 bg-white rounded-lg p-6"> */}
         <div className="flex justify-around bg-white rounded-lg py-8 col-span-full justify-center">
-        <Chart
-          options={productChartData.options}
-          series={productChartData.series}
-          type="bar"
-          height={400}
-          width="800"
-        />
+          <Chart
+            options={productChartData.options}
+            series={productChartData.series}
+            type="bar"
+            height={400}
+            width="800"
+          />
+        </div>
       </div>
-      </div>
-      
     </>
   );
 }

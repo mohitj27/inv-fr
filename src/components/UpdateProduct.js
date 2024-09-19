@@ -22,7 +22,7 @@ export default function UpdateProduct({
   };
 
   const updateProduct = () => {
-    fetch("http://localhost:5000/api/product/update", {
+    fetch("https://inventory-backend-1-g9xh.onrender.com/api/product/update", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

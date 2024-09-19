@@ -23,7 +23,7 @@ export default function AddStore() {
   const cancelButtonRef = useRef(null);
 
   const addProduct = () => {
-    fetch("http://localhost:5000/api/store/add", {
+    fetch("https://inventory-backend-1-g9xh.onrender.com/api/store/add", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -119,7 +119,7 @@ export default function AddStore() {
                               value={form.name}
                               onChange={handleInputChange}
                               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                              placeholder="Enter Store Name"
+                              placeholder="Enter Department Name"
                             />
                           </div>
                           <div>
@@ -159,10 +159,10 @@ export default function AddStore() {
                               <option selected="" value="Electronics">
                                 Electronics
                               </option>
-                              <option value="Groceries">Groceries</option>
-                              <option value="Wholesale">WholeSale</option>
-                              <option value="SuperMart">SuperMart</option>
-                              <option value="Phones">Phones</option>
+                              <option value="Groceries">it department</option>
+                              <option value="Wholesale">stationary</option>
+                              <option value="SuperMart">canteen</option>
+                              <option value="Phones">other departments</option>
                             </select>
                           </div>
                           <div className="sm:col-span-2">
@@ -224,8 +224,6 @@ export default function AddStore() {
                             Delete
                           </button> */}
                         </div>
-                        
-                        
                       </form>
                     </div>
                   </div>
@@ -236,7 +234,7 @@ export default function AddStore() {
                     className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
                     onClick={addProduct}
                   >
-                    Add Store
+                    Add Department
                   </button>
                   <button
                     type="button"

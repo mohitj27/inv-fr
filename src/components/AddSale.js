@@ -7,7 +7,7 @@ export default function AddSale({
   products,
   stores,
   handlePageUpdate,
-  authContext
+  authContext,
 }) {
   const [sale, setSale] = useState({
     userID: authContext.user,
@@ -20,7 +20,6 @@ export default function AddSale({
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
-
   // Handling Input Change for input fields
   const handleInputChange = (key, value) => {
     setSale({ ...sale, [key]: value });
@@ -28,7 +27,7 @@ export default function AddSale({
 
   // POST Data
   const addSale = () => {
-    fetch("http://localhost:5000/api/sales/add", {
+    fetch("https://inventory-backend-1-g9xh.onrender.com/api/sales/add", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -143,7 +142,7 @@ export default function AddSale({
                               htmlFor="storeID"
                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             >
-                              Store Name
+                              Department Name
                             </label>
                             <select
                               id="storeID"
@@ -179,7 +178,7 @@ export default function AddSale({
                                 handleInputChange(e.target.name, e.target.value)
                               }
                               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                              placeholder="$299"
+                              placeholder="₹299"
                             />
                           </div>
                           <div className="h-fit w-fit">

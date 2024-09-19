@@ -14,7 +14,9 @@ function Store() {
 
   // Fetching all stores data
   const fetchData = () => {
-    fetch(`http://localhost:5000/api/store/get/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/store/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);
@@ -34,7 +36,7 @@ function Store() {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 text-xs  rounded"
             onClick={modalSetting}
           >
-            Add Store
+            Add Department
           </button>
         </div>
         {showModal && <AddStore />}

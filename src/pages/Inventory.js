@@ -3,8 +3,6 @@ import AddProduct from "../components/AddProduct";
 import UpdateProduct from "../components/UpdateProduct";
 import AuthContext from "../AuthContext";
 
-
-
 function Inventory() {
   const [showProductModal, setShowProductModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -19,9 +17,9 @@ function Inventory() {
   const [lowStockCount, setLowStockCount] = useState(0);
 
   const authContext = useContext(AuthContext);
-  console.log('====================================');
+  console.log("====================================");
   console.log(authContext);
-  console.log('====================================');
+  console.log("====================================");
 
   useEffect(() => {
     fetchTotalSaleAmount();
@@ -35,35 +33,38 @@ function Inventory() {
   const val = zeroStockProducts.length;
 
   const fetchLowStockCount = () => {
-    fetch(`http://localhost:5000/api/product/lowStockCount/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/lowStockCount/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setLowStockCount(data.count);
       })
       .catch((err) => console.log(err));
   };
-  
+
   // State to store the count of low stock products
-  
-  
+
   // useEffect to fetch low stock count when the component mounts or when updatePage changes
   // useEffect(() => {
   //   fetchLowStockCount();
   // }, [updatePage, authContext.user]);
-  
+
   // Fetching total sales amount
   const fetchTotalSaleAmount = () => {
     fetch(
       // `http://localhost:4000/api/sales/get/${authContext.user}/totalsaleamount`
-      `http://localhost:5000/api/sales/get/${authContext.user}/totalsaleamount`
+      `https://inventory-backend-1-g9xh.onrender.com/api/sales/get/${authContext.user}/totalsaleamount`
     )
       .then((response) => response.json())
       .then((datas) => setSaleAmount(datas.totalSaleAmount));
   };
-  
+
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`http://localhost:5000/api/product/get/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -73,7 +74,9 @@ function Inventory() {
 
   // Fetching Data of Search Products
   const fetchSearchData = () => {
-    fetch(`http://localhost:5000/api/product/search?searchTerm=${searchTerm}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/search?searchTerm=${searchTerm}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -84,16 +87,17 @@ function Inventory() {
   const fetchTotalPurchaseAmount = () => {
     fetch(
       // `http://localhost:4000/api/purchase/get/${authContext.user}/totalpurchaseamount`
-      `http://localhost:5000/api/purchase/get/${authContext.user}/totalpurchaseamount`
+      `https://inventory-backend-1-g9xh.onrender.com/api/purchase/get/${authContext.user}/totalpurchaseamount`
     )
-    
       .then((response) => response.json())
       .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
   };
 
   // Fetching all stores data
   const fetchSalesData = () => {
-    fetch(`http://localhost:5000/api/store/get/${authContext.user}`)
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/store/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);
@@ -112,12 +116,15 @@ function Inventory() {
     setShowUpdateModal(!showUpdateModal);
   };
 
-
   // Delete item
   const deleteItem = (id) => {
     console.log("Product ID: ", id);
-    console.log(`http://localhost:5000/api/product/delete/${id}`);
-    fetch(`http://localhost:5000/api/product/delete/${id}`)
+    console.log(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/delete/${id}`
+    );
+    fetch(
+      `https://inventory-backend-1-g9xh.onrender.com/api/product/delete/${id}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setUpdatePage(!updatePage);
@@ -135,10 +142,9 @@ function Inventory() {
     fetchSearchData();
   };
 
-  const revenue =(purchaseAmount - saleAmount );
+  const revenue = purchaseAmount - saleAmount;
   // console.log(revenue)
 
-  
   return (
     <div className="col-span-12 lg:col-span-10  flex justify-center">
       <div className=" flex flex-col gap-5 w-11/12">
@@ -180,7 +186,7 @@ function Inventory() {
                     $2000
                   </span> */}
                   <span className="font-semibold text-gray-600 text-base">
-                    ${revenue}
+                    ₹{revenue}
                     {/* ${purchaseAmount} */}
                   </span>
                   <span className="font-thin text-gray-400 text-xs">
@@ -220,7 +226,7 @@ function Inventory() {
               <div className="flex gap-8">
                 <div className="flex flex-col">
                   <span className="font-semibold text-gray-600 text-base">
-                  {lowStockCount}
+                    {lowStockCount}
                   </span>
                   <span className="font-thin text-gray-400 text-xs">
                     Ordered
