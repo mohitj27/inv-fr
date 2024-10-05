@@ -50,7 +50,8 @@ export default function Header() {
                       <div className="flex justify-center items-center gap-2">
                         <img
                           className="h-8 w-8"
-                          src={require("../assets/logo.png")}
+                          style={{background:"white"}}
+                          src={require("../assets/logo.webp")}
                           alt="Inventory Management System"
                         />
                         <span className="font-bold text-white italic bold">

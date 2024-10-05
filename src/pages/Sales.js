@@ -174,13 +174,13 @@ function Sales() {
                   Department Name{" "}
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Stock Sold
+                  Stock out quantity
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Sales Date
+                  Stock out Date
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Total Sale Amount
+                  Total Stock out Amount
                 </th>
               </tr>
             </thead>
