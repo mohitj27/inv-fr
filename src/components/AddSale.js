@@ -15,7 +15,7 @@ export default function AddSale({
     storeID: "",
     stockSold: "",
     saleDate: "",
-    totalSaleAmount: "",
+    totalSaleAmount: 0,
   });
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
@@ -163,23 +163,7 @@ export default function AddSale({
                             </select>
                           </div>
                           <div>
-                            <label
-                              htmlFor="totalSaleAmount"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >
-                              Total Sale Amount
-                            </label>
-                            <input
-                              type="number"
-                              name="totalSaleAmount"
-                              id="price"
-                              value={sale.totalSaleAmount}
-                              onChange={(e) =>
-                                handleInputChange(e.target.name, e.target.value)
-                              }
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                              placeholder="₹299"
-                            />
+
                           </div>
                           <div className="h-fit w-fit">
                             {/* <Datepicker

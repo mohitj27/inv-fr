@@ -179,9 +179,7 @@ function Sales() {
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
                   Stock out Date
                 </th>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Total Stock out Amount
-                </th>
+
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -206,9 +204,6 @@ function Sales() {
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                       {element.SaleDate}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      ₹{element.TotalSaleAmount}
                     </td>
                   </tr>
                 );
