@@ -88,7 +88,7 @@ export default function AddPurchaseDetails({
                         as="h3"
                         className="text-lg  py-4 font-semibold leading-6 text-gray-900 "
                       >
-                        Purchase Details
+                        Stock in Details
                       </Dialog.Title>
                       <form action="#">
                         <div className="grid gap-4 mb-4 sm:grid-cols-2">
@@ -122,7 +122,7 @@ export default function AddPurchaseDetails({
                               htmlFor="quantityPurchased"
                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             >
-                              Quantity Purchased
+                              Quantity Coming in
                             </label>
                             <input
                               type="number"
@@ -165,7 +165,7 @@ export default function AddPurchaseDetails({
                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                               htmlFor="purchaseDate"
                             >
-                              Purchase Date
+                              Stock in Date
                             </label>
                             <input
                               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"

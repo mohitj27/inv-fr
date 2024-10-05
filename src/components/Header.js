@@ -54,7 +54,7 @@ export default function Header() {
                           alt="Inventory Management System"
                         />
                         <span className="font-bold text-white italic bold">
-                          SHOP SENSE : Inventory Management
+                          UP vidhan Sabha : Inventory Management
                         </span>
                       </div>
                     </div>

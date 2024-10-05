@@ -1,4 +1,3 @@
-// import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
@@ -9,6 +8,9 @@ function Login() {
     password: "",
   });
 
+  const [expanded, setExpanded] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -16,11 +18,14 @@ function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleExpand = (section) => {
+    setExpanded(expanded === section ? null : section);
+  };
+
   const authCheck = () => {
     setTimeout(() => {
       fetch("https://inventory-backend-1-g9xh.onrender.com/api/login")
         .then((response) => response.json())
-        // alert("....Try again")
         .then((data) => {
           alert("Successfully Login");
           localStorage.setItem("user", JSON.stringify(data));
@@ -28,18 +33,14 @@ function Login() {
             navigate("/");
           });
         });
-      // .catch((err) => {
-      //   alert("Wrong credentials, Try again")
-      //   console.log(err);
-      // });
     }, 3000);
   };
 
   const loginUser = (e) => {
-    // Cannot send empty data
     if (form.email === "" || form.password === "") {
       alert("To login user, enter details to proceed...");
     } else {
+      setIsLoading(true);
       fetch("https://inventory-backend-1-g9xh.onrender.com/api/login", {
         method: "POST",
         headers: {
@@ -52,6 +53,9 @@ function Login() {
         })
         .catch((error) => {
           console.log("Something went wrong ", error);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
     authCheck();
@@ -63,11 +67,80 @@ function Login() {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 h-screen  items-center place-items-center">
-        <div className="flex justify-center">
-          <img src={require("../assets/signup.jpg")} alt="" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 h-screen items-center place-items-center">
+        {/* Left section with details about UP Vidhan Sabha */}
+        <div className="flex flex-col justify-center items-center space-y-6 px-4">
+          <h1 className="text-4xl font-bold text-indigo-700 transition duration-500 transform hover:scale-110">
+            Welcome to UP Vidhan Sabha
+          </h1>
+          <p className="text-lg text-gray-600">
+            The Uttar Pradesh Vidhan Sabha is the lower house of the bicameral
+            legislature of Uttar Pradesh. It plays a significant role in shaping
+            the governance of India's most populous state.
+          </p>
+
+          {/* Accordion Sections */}
+          <div className="space-y-4 w-full">
+            {/* Section 1 */}
+            <div
+              className="cursor-pointer p-4 bg-indigo-50 rounded-lg shadow transition-all duration-300 hover:bg-indigo-100"
+              onClick={() => handleExpand("section1")}
+            >
+              <h2 className="text-lg font-semibold text-indigo-600">
+                {expanded === "section1"
+                  ? "▼ What is Vidhan Sabha?"
+                  : "► What is Vidhan Sabha?"}
+              </h2>
+              {expanded === "section1" && (
+                <p className="text-gray-600 mt-2 transition duration-500 ease-in-out">
+                  The Vidhan Sabha, also called the Legislative Assembly,
+                  comprises 403 members, each representing a legislative
+                  constituency.
+                </p>
+              )}
+            </div>
+
+            {/* Section 2 */}
+            <div
+              className="cursor-pointer p-4 bg-indigo-50 rounded-lg shadow transition-all duration-300 hover:bg-indigo-100"
+              onClick={() => handleExpand("section2")}
+            >
+              <h2 className="text-lg font-semibold text-indigo-600">
+                {expanded === "section2"
+                  ? "▼ Role of Vidhan Sabha"
+                  : "► Role of Vidhan Sabha"}
+              </h2>
+              {expanded === "section2" && (
+                <p className="text-gray-600 mt-2 transition duration-500 ease-in-out">
+                  The Vidhan Sabha plays a critical role in governance,
+                  discussing and passing laws, state budgets, and other matters
+                  important to the welfare of Uttar Pradesh.
+                </p>
+              )}
+            </div>
+
+            {/* Section 3 */}
+            <div
+              className="cursor-pointer p-4 bg-indigo-50 rounded-lg shadow transition-all duration-300 hover:bg-indigo-100"
+              onClick={() => handleExpand("section3")}
+            >
+              <h2 className="text-lg font-semibold text-indigo-600">
+                {expanded === "section3"
+                  ? "▼ How to Attend a Session?"
+                  : "► How to Attend a Session?"}
+              </h2>
+              {expanded === "section3" && (
+                <p className="text-gray-600 mt-2 transition duration-500 ease-in-out">
+                  Sessions are open to the public at certain times. You can
+                  request passes through official channels.
+                </p>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="w-full max-w-md space-y-8 p-10 rounded-lg">
+
+        {/* Right section for login form */}
+        <div className="w-full max-w-md space-y-8 p-10 rounded-lg bg-white shadow-lg transform transition duration-500 hover:scale-105">
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -75,7 +148,7 @@ function Login() {
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Signin to your account
+              Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or
@@ -85,7 +158,6 @@ function Login() {
             </p>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-            {/* <input type="hidden" name="remember" defaultValue="true" /> */}
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
                 <label htmlFor="email-address" className="sr-only">
@@ -147,21 +219,22 @@ function Login() {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className={`group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all ${
+                  isLoading && "opacity-50 cursor-not-allowed"
+                }`}
                 onClick={loginUser}
+                disabled={isLoading}
               >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  {/* <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  /> */}
-                </span>
-                Sign in
+                {isLoading ? (
+                  <span className="animate-spin h-5 w-5 mr-3 border-t-2 border-b-2 border-white rounded-full"></span>
+                ) : (
+                  "Sign in"
+                )}
               </button>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
                 <span className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Don't Have an Account, Please{" "}
+                  Don't Have an Account?{" "}
                   <Link to="/Register"> Register now </Link>
                 </span>
               </p>

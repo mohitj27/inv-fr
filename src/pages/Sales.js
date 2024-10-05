@@ -121,7 +121,7 @@ function Sales() {
         {/* Print and Add Sale Buttons */}
         <div className="flex justify-between pt-5 pb-3 px-3">
           <div className="flex gap-4 justify-center items-center ">
-            <span className="font-bold">Sales</span>
+            <span className="font-bold">Stock out</span>
           </div>
           <div className="flex gap-4">
             <button
@@ -133,13 +133,13 @@ function Sales() {
                 personMobile === ""
               }
             >
-              Print Selected Sales
+              Print Stock out receipt
             </button>
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 text-xs rounded"
               onClick={addSaleModalSetting}
             >
-              Add Sales
+              Add outgoing stock
             </button>
           </div>
         </div>

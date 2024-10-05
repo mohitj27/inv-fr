@@ -233,7 +233,7 @@ function Dashboard() {
 
           <div>
             <strong className="block text-sm font-medium text-gray-500">
-              Sales
+              Stock out
             </strong>
 
             <p>
@@ -273,7 +273,7 @@ function Dashboard() {
 
           <div>
             <strong className="block text-sm font-medium text-gray-500">
-              Purchase
+              Stock in
             </strong>
 
             <p>
