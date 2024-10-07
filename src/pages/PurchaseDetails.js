@@ -88,9 +88,6 @@ function PurchaseDetails() {
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
                   Stock in Date
                 </th>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Total Stock in  Amount
-                </th>
               </tr>
             </thead>
 
@@ -109,9 +106,6 @@ function PurchaseDetails() {
                       new Date().toLocaleDateString()
                         ? "Today"
                         : element.PurchaseDate}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      ₹{element.TotalPurchaseAmount}
                     </td>
                   </tr>
                 );
