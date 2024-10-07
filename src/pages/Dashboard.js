@@ -3,6 +3,8 @@ import Chart from "react-apexcharts";
 import AuthContext from "../AuthContext";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import vidhanSabhaImage from "../../src/assets/upvbg.jpg";
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export const data = {
@@ -209,7 +211,16 @@ function Dashboard() {
 
   return (
     <>
-      <div className="grid grid-cols-1 col-span-12 lg:col-span-10 gap-6 md:grid-cols-3 lg:grid-cols-4  p-4 ">
+      <div
+        className="grid grid-cols-1 col-span-12 lg:col-span-10 gap-6 md:grid-cols-3 lg:grid-cols-4  p-4 "
+        style={{
+          backgroundImage: `url(${vidhanSabhaImage})`, // Use the path to the image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh", // Ensure it covers the whole viewport
+        }}
+      >
         <article className="flex flex-col gap-4 rounded-lg border  border-gray-100 bg-white p-6  ">
           <div className="inline-flex gap-2 self-end rounded bg-green-100 p-1 text-green-600">
             <svg
