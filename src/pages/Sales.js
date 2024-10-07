@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import AddSale from "../components/AddSale";
 import AuthContext from "../AuthContext";
+import vidhanSabhaImage from "../../src/assets/upvbg.jpg";
 
 function Sales() {
   const [showSaleModal, setShowSaleModal] = useState(false);
@@ -86,7 +87,16 @@ function Sales() {
   };
 
   return (
-    <div className="col-span-12 lg:col-span-10  flex justify-center">
+    <div
+      className="col-span-12 lg:col-span-10  flex justify-center"
+      style={{
+        backgroundImage: `url(${vidhanSabhaImage})`, // Use the path to the image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh", // Ensure it covers the whole viewport
+      }}
+    >
       <div className="flex flex-col gap-5 w-11/12">
         {showSaleModal && (
           <AddSale
@@ -179,11 +189,10 @@ function Sales() {
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
                   Stock out Date
                 </th>
-
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {sales.map((element, index) => {
+             {sales.map((element, index) => {
                 return (
                   <tr key={element._id}>
                     <td className="whitespace-nowrap px-4 py-2">
@@ -210,8 +219,7 @@ function Sales() {
               })}
             </tbody>
           </table>
-          {selectedSales.length > 0 && 
-           <div> Recipient signature:</div>}
+          {selectedSales.length > 0 && <div> Recipient signature:</div>}
         </div>
       </div>
     </div>
