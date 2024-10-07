@@ -122,7 +122,7 @@ export default function AddSale({
                               htmlFor="stockSold"
                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                             >
-                              Stock Sold
+                              Stock issued
                             </label>
                             <input
                               type="number"
