@@ -13,7 +13,7 @@ export default function AddPurchaseDetails({
     productID: "",
     quantityPurchased: "",
     purchaseDate: "",
-    totalPurchaseAmount: "",
+    totalPurchaseAmount: 0,
   });
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
