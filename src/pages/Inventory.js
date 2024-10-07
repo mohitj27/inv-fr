@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import AddProduct from "../components/AddProduct";
 import UpdateProduct from "../components/UpdateProduct";
 import AuthContext from "../AuthContext";
+import vidhanSabhaImage from "../../src/assets/upvbg.jpg";
+
 
 function Inventory() {
   const [showProductModal, setShowProductModal] = useState(false);
@@ -146,7 +148,16 @@ function Inventory() {
   // console.log(revenue)
 
   return (
-    <div className="col-span-12 lg:col-span-10  flex justify-center">
+    <div
+      className="col-span-12 lg:col-span-10  flex justify-center"
+      style={{
+        backgroundImage: `url(${vidhanSabhaImage})`, // Use the path to the image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh", // Ensure it covers the whole viewport
+      }}
+    >
       <div className=" flex flex-col gap-5 w-11/12">
         <div className="bg-white rounded p-3">
           <span className="font-semibold px-4">Overall Inventory</span>

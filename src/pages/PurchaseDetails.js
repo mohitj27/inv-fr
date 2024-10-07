@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import AddPurchaseDetails from "../components/AddPurchaseDetails";
 import AuthContext from "../AuthContext";
+import vidhanSabhaImage from "../../src/assets/upvbg.jpg";
+
 
 function PurchaseDetails() {
   const [showPurchaseModal, setPurchaseModal] = useState(false);
@@ -50,7 +52,16 @@ function PurchaseDetails() {
   };
 
   return (
-    <div className="col-span-12 lg:col-span-10  flex justify-center">
+    <div
+      className="col-span-12 lg:col-span-10  flex justify-center"
+      style={{
+        backgroundImage: `url(${vidhanSabhaImage})`, // Use the path to the image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh", // Ensure it covers the whole viewport
+      }}
+    >
       <div className=" flex flex-col gap-5 w-11/12">
         {showPurchaseModal && (
           <AddPurchaseDetails
@@ -64,7 +75,7 @@ function PurchaseDetails() {
         <div className="overflow-x-auto rounded-lg border bg-white border-gray-200 ">
           <div className="flex justify-between pt-5 pb-3 px-3">
             <div className="flex gap-4 justify-center items-center ">
-              <span className="font-bold">Stock in  Details</span>
+              <span className="font-bold">Stock in Details</span>
             </div>
             <div className="flex gap-4">
               <button
@@ -83,7 +94,7 @@ function PurchaseDetails() {
                   Product Name
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Quantity Stock in 
+                  Quantity Stock in
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
                   Stock in Date
