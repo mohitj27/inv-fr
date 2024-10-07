@@ -154,23 +154,8 @@ function Sales() {
           </div>
         </div>
 
-        {/* Table */}
-        <div
-          ref={printRef}
-          className="overflow-x-auto rounded-lg border bg-white border-gray-200"
-        >
-          {/* Print Details for the Person */}
-          {selectedSales.length > 0 && (
-            <div className="p-5">
-              <h3 className="font-bold text-lg mb-3">Sales Report</h3>
-              <p>
-                <strong>Person Receiving:</strong> {personName}
-              </p>
-              <p>
-                <strong>Mobile Number:</strong> {personMobile}
-              </p>
-            </div>
-          )}
+        {/* Main Table for all sales on the main page */}
+        <div className="overflow-x-auto rounded-lg border bg-white border-gray-200">
           <table className="min-w-full divide-y-2 divide-gray-200 text-sm">
             <thead>
               <tr>
@@ -181,7 +166,7 @@ function Sales() {
                   Product Name
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Department Name{" "}
+                  Department Name
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
                   Stock out quantity
@@ -192,7 +177,7 @@ function Sales() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-             {sales.map((element, index) => {
+              {sales.map((element, index) => {
                 return (
                   <tr key={element._id}>
                     <td className="whitespace-nowrap px-4 py-2">
@@ -219,7 +204,57 @@ function Sales() {
               })}
             </tbody>
           </table>
-          {selectedSales.length > 0 && <div> Recipient signature:</div>}
+        </div>
+
+        {/* Hidden div for selected sales (for print only) */}
+        <div ref={printRef} className="hidden">
+          {selectedSales.length > 0 && (
+            <div className="p-5">
+              <h3 className="font-bold text-lg mb-3">Sales Report</h3>
+              <p>
+                <strong>Person Receiving:</strong> {personName}
+              </p>
+              <p>
+                <strong>Mobile Number:</strong> {personMobile}
+              </p>
+              <table className="min-w-full divide-y-2 divide-gray-200 text-sm">
+                <thead>
+                  <tr>
+                    <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                      Product Name
+                    </th>
+                    <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                      Department Name
+                    </th>
+                    <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                      Stock out quantity
+                    </th>
+                    <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                      Stock out Date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {selectedSales.map((element) => (
+                    <tr key={element._id}>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-900">
+                        {element.ProductID?.name}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {element.StoreID?.name}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {element.StockSold}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                        {element.SaleDate}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </div>
