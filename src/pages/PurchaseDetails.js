@@ -75,7 +75,7 @@ function PurchaseDetails() {
         <div className="overflow-x-auto rounded-lg border bg-white border-gray-200 ">
           <div className="flex justify-between pt-5 pb-3 px-3">
             <div className="flex gap-4 justify-center items-center ">
-              <span className="font-bold">Stock in Details</span>
+              <span className="font-bold">Receipt of goods</span>
             </div>
             <div className="flex gap-4">
               <button
@@ -99,6 +99,12 @@ function PurchaseDetails() {
                 <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
                   Stock in Date
                 </th>
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                  Grn No
+                </th>
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                  Delivery challan no
+                </th>
               </tr>
             </thead>
 
@@ -117,6 +123,12 @@ function PurchaseDetails() {
                       new Date().toLocaleDateString()
                         ? "Today"
                         : element.PurchaseDate}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {element.GrnNo ? element.GrnNo : "--"}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {element.DeliveryChallanNo ? element.DeliveryChallanNo : "--"}
                     </td>
                   </tr>
                 );

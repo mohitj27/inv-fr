@@ -14,6 +14,7 @@ export default function AddPurchaseDetails({
     quantityPurchased: "",
     purchaseDate: "",
     totalPurchaseAmount: 0,
+    deliveryChallanNo: "",
   });
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
@@ -88,7 +89,7 @@ export default function AddPurchaseDetails({
                         as="h3"
                         className="text-lg  py-4 font-semibold leading-6 text-gray-900 "
                       >
-                        Stock in Details
+                        Receipt of goods
                       </Dialog.Title>
                       <form action="#">
                         <div className="grid gap-4 mb-4 sm:grid-cols-2">
@@ -136,7 +137,7 @@ export default function AddPurchaseDetails({
                               placeholder="0 - 999"
                             />
                           </div>
-                          
+
                           <div className="h-fit w-fit">
                             {/* <Datepicker
                               onChange={handleChange}
@@ -158,6 +159,44 @@ export default function AddPurchaseDetails({
                               onChange={(e) =>
                                 handleInputChange(e.target.name, e.target.value)
                               }
+                            />
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="deliveryChallanNo"
+                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >
+                              delivery Challan No
+                            </label>
+                            <input
+                              type="string"
+                              name="deliveryChallanNo"
+                              id="deliveryChallanNo"
+                              value={purchase.deliveryChallanNo}
+                              onChange={(e) =>
+                                handleInputChange(e.target.name, e.target.value)
+                              }
+                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                              placeholder="delivery challan no"
+                            />
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="grnNo"
+                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >
+                              grn No
+                            </label>
+                            <input
+                              type="string"
+                              name="grnNo"
+                              id="grnNo"
+                              value={purchase.grnNo}
+                              onChange={(e) =>
+                                handleInputChange(e.target.name, e.target.value)
+                              }
+                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                              placeholder="grn no"
                             />
                           </div>
                         </div>

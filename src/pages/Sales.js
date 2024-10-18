@@ -143,7 +143,7 @@ function Sales() {
                 personMobile === ""
               }
             >
-              Print Stock out receipt
+              Print Issuance receipt
             </button>
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 text-xs rounded"
